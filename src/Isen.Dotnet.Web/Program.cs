@@ -28,7 +28,6 @@ namespace Isen.Dotnet.Web
                     .ServiceProvider.GetService<IDataInitializer>();
                 dataInitializer.DropDatabase();
                 dataInitializer.CreateDatabase();
-                dataInitializer.AddCities();
                 dataInitializer.AddServices();
                 dataInitializer.AddPersons();
             }

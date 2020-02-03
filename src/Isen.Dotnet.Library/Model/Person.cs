@@ -9,12 +9,6 @@ namespace Isen.Dotnet.Library.Model
         public string FirstName {get;set;}
         public string LastName {get;set;}
         public DateTime? DateOfBirth {get;set;}
-
-        public City BirthCity {get;set;}
-        public int? BirthCityId {get;set;}
-
-        public City ResidenceCity {get;set;}
-        public int? ResidenceCityId {get;set;}
         
         [NotMapped] // ne pas générer ce champ dans la bdd
         public int? Age => DateOfBirth.HasValue ?
@@ -22,7 +16,10 @@ namespace Isen.Dotnet.Library.Model
             (int)((DateTime.Now - DateOfBirth.Value).TotalDays / 365) :
             // Pas de date de naissance alors, un entier null
             new int?();
-
+ 
+        public string Email {get;set;}
+        
+        public string NoTel { get; set; }
         public Service Service {get;set;}
 
         public int? ServiceId {get;set;}
@@ -30,7 +27,7 @@ namespace Isen.Dotnet.Library.Model
         // public Role[] Role {get;set;}
         
         public override string ToString() =>
-            $"{FirstName} {LastName} | {DateOfBirth} ({Age}) | {BirthCity} / {ResidenceCity} / {Service} ";
+            $"{FirstName} {LastName} | {DateOfBirth} ({Age}) | {Email} | {NoTel} | {Service} ";
         
     }
 }

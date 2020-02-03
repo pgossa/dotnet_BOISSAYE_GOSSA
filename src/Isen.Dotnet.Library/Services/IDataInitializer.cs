@@ -9,7 +9,6 @@ namespace Isen.Dotnet.Library.Services
          void DropDatabase();
          void CreateDatabase();
          void AddPersons();
-         void AddCities();
          void AddServices();
     }
 }

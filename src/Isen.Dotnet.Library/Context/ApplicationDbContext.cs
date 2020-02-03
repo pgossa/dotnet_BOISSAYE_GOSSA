@@ -8,7 +8,6 @@ namespace Isen.Dotnet.Library.Context
     {        
         // Listes des classes modèle / tables
         public DbSet<Person> PersonCollection { get; set; }
-        public DbSet<City> CityCollection { get; set; }
         public DbSet<Service> ServiceCollection {get;set;}
 
         public ApplicationDbContext(
@@ -26,23 +25,6 @@ namespace Isen.Dotnet.Library.Context
                 .Entity<Person>()
                 // ... à la table Person
                 .ToTable(nameof(Person))
-                // Description de la relation Person.BirthCity
-                .HasOne(p => p.BirthCity)
-                // Relation réciproque (omise)
-                .WithMany()
-                // Clé étrangère qui porte cette relation
-                .HasForeignKey(p => p.BirthCityId);
-                
-            // Pareil pour ResidenceCity
-            modelBuilder.Entity<Person>()
-                .HasOne(p => p.ResidenceCity)
-                .WithMany()
-                .HasForeignKey(p => p.ResidenceCityId);
-            // Et utiliser le champ Id comme clé primaire
-            // Déclaration optionnelle, car le nommage
-            // Id ou PersonId est reconnu comme convention
-            // pour les clés primaires ou étrangères
-            modelBuilder.Entity<Person>()
                 .HasKey(p => p.Id);
 
             modelBuilder.Entity<Person>()
@@ -50,12 +32,7 @@ namespace Isen.Dotnet.Library.Context
                 .WithMany()
                 .HasForeignKey(p => p.ServiceId);
 
-            // Pareil pour City
-            modelBuilder
-                .Entity<City>()
-                .ToTable(nameof(City))
-                .HasKey(c => c.Id);
-
+           
             // Pareil pour Role
             // modelBuilder
             //     .Entity<Role>()
