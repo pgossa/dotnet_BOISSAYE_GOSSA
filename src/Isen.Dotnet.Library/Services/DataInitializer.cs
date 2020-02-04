@@ -104,6 +104,7 @@ namespace Isen.Dotnet.Library.Services
             for(var i = 0 ; i < size ; i++)
             {
                 persons.Add(RandomPerson);
+                persons[i].Email = persons[i].FirstName + "." + persons[i].LastName + "@isen.yncrea.fr";
             }
             return persons;
         }
