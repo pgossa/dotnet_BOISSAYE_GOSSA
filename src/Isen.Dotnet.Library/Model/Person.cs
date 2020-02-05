@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace Isen.Dotnet.Library.Model
 {
@@ -21,13 +22,13 @@ namespace Isen.Dotnet.Library.Model
         
         public string NoTel { get; set; }
         public Service Service {get;set;}
-
         public int? ServiceId {get;set;}
+        public ICollection<RolePerson> rolepersons {get;set;}
 
         // public Role[] Role {get;set;}
         
         public override string ToString() =>
-            $"{FirstName} {LastName} | {DateOfBirth} ({Age}) | {Email} | {NoTel} | {Service} ";
+            $"{FirstName} {LastName} | {DateOfBirth} ({Age}) | {Email} | {NoTel} | {Service} | {rolepersons} ";
         
     }
 }

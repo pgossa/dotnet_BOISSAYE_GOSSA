@@ -29,6 +29,7 @@ namespace Isen.Dotnet.Web
                 dataInitializer.DropDatabase();
                 dataInitializer.CreateDatabase();
                 dataInitializer.AddServices();
+                dataInitializer.AddRoles();
                 dataInitializer.AddPersons();
             }
             // l'exécuter

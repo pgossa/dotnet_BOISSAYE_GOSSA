@@ -20,6 +20,7 @@ namespace Isen.Dotnet.Web.Controllers
         // Exemple d'override de la query : liste les personnes
         protected override IQueryable<Person> BaseQuery() =>
             base.BaseQuery()
-                .Include(p => p.Service);
+                .Include(p => p.Service)
+                .Include("rolepersons.role");
     }
 }

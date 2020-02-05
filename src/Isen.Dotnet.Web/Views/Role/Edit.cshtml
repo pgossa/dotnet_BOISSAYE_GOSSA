@@ -1,0 +1,58 @@
+@{
+    ViewData["Title"] = "Edition d'un role";
+}
+@using Isen.Dotnet.Library.Model;
+@model Role;
+@using Isen.Dotnet.Library.Context;
+@inject ApplicationDbContext _context;
+
+<h2>Création ou édition <small>d'un role</small></h2>
+<form class="form-group" asp-action="Edit">
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label for="role">Nom</label>
+                <input
+                    id="role"
+                    type="text"
+                    class="form-control"
+                    placeholder="Nom du role"
+                    asp-for="role"
+                    value="@Model?.role"/>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label for="Person">Personnes</label>
+                @using (Html.BeginForm("Edit", "Role")){
+                    foreach (var _allPerson in _context.PersonCollection)
+                    {
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="rolepersons.person" value="@_allPerson.FirstName"
+                                @if(!(@Model is null))
+                                    @foreach (var existingPerson in @Model.rolepersons)
+                                    {
+                                        @if(existingPerson.person == _allPerson)
+                                            {
+                                            <text> checked </text> 
+                                            }
+                                    }
+                                }
+                                /> @_allPerson.FirstName @_allPerson.LastName
+                            </label>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Valider</button>
+            <a class="btn btn-secondary" asp-action="Index">Annuler</a>
+        </div>
+    </div>
+
+</form>        

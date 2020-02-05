@@ -15,6 +15,7 @@
                 <th scope="col">Email</th>
                 <th scope="col">Téléphone</th>
                 <th scope="col">Service</th>
+                <th scope="col">Roles</th>
                 <th scope="col">Action...</th>
             </tr>
         </thead>
@@ -29,6 +30,14 @@
                 <td>@person.Email</td>
                 <td>@person.NoTel</td>
                 <td>@person.Service?.service</td>
+                <td>
+                    <ul>
+                        @foreach (var role in person.rolepersons)
+                        {
+                            <li>@role.role.role</li>
+                        }
+                    </ul>
+                </td>
                 <td>
                     <a class="btn btn-outline-primary"
                         asp-controller="Person"

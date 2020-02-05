@@ -8,6 +8,7 @@ namespace Isen.Dotnet.Library.Services
          List<Person> GetPersons(int size);
          void DropDatabase();
          void CreateDatabase();
+         void AddRoles();
          void AddPersons();
          void AddServices();
     }

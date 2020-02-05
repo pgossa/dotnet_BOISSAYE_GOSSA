@@ -87,6 +87,32 @@
                 )
             </div>
         </div>
+    
+        <div class="col-6">
+            <div class="form-group">
+                <label for="Role">Role</label>
+                @using (Html.BeginForm("Edit", "Person")){
+                    foreach (var _allRole in _context.RoleCollection)
+                    {
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="rolepersons.role" value="@_allRole.role"
+                                @if(!(@Model is null))
+                                    @foreach (var existingRole in @Model.rolepersons)
+                                    {
+                                        @if(existingRole.role == _allRole)
+                                            {
+                                            <text> checked </text> 
+                                            }
+                                    }
+                                }
+                                /> @_allRole.role 
+                            </label>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
     </div>
 
     @{
