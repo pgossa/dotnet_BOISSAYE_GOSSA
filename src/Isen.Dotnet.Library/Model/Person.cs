@@ -24,8 +24,6 @@ namespace Isen.Dotnet.Library.Model
         public Service Service {get;set;}
         public int? ServiceId {get;set;}
         public ICollection<RolePerson> rolepersons {get;set;}
-
-        // public Role[] Role {get;set;}
         
         public override string ToString() =>
             $"{FirstName} {LastName} | {DateOfBirth} ({Age}) | {Email} | {NoTel} | {Service} | {rolepersons} ";

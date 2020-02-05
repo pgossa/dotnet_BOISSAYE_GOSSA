@@ -4,7 +4,6 @@ using Isen.Dotnet.Library.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 
 namespace Isen.Dotnet.Web.Controllers
 {

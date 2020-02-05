@@ -194,11 +194,9 @@ namespace Isen.Dotnet.Library.Services
         {
             _logger.LogWarning("Adding roles...");
             if (_context.RoleCollection.Any()) return;
-            _logger.LogWarning("resgergseg");
             var roles = GetRoles();
             _context.AddRange(roles);
             _context.SaveChanges();
-            _logger.LogWarning("OUIIIIII");
         }
     }
 }
